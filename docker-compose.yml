@@ -1,0 +1,20 @@
+services:
+  mc-players-www:
+    image: anssi/fcsc2022-web-mc-players-www:latest
+    container_name: mc-players-www
+    ports:
+     - ${PORT}:8000
+    networks:
+      - mc-players-internal
+      - mc-players-external
+
+  mc-players-flag:
+    image: anssi/fcsc2022-web-mc-players-flag:latest
+    container_name: mc-players-flag
+    networks:
+      - mc-players-internal
+
+networks:
+  mc-players-external:
+  mc-players-internal:
+    internal: true
